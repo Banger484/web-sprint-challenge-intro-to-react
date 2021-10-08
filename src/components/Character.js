@@ -4,12 +4,11 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const StyledDiv = styled.div`
-
-    border: 1px solid black;
-    width: 70%;
+    width: 95%;
     display: flex;
-    margin: 5% auto;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px auto;
     background-color:black;
     background-image:
     radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -20,31 +19,60 @@ const StyledDiv = styled.div`
     background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
     border-radius: 25px;
     color: yellow;
-    padding: 0px 25px;
-    /* font-family: 'Bungee Outline', cursive; */
     font-size: 1.1rem;
+    padding: 10px;
 `
 const StyledName = styled.h1`
     width: 100%;
+    padding: 0;
+    margin: 0;
 `
 const StyledList = styled.ul`
-    list-style-type: circle;
-    width: 40%;
+width: 60%;
+margin: 10px;
+text-align: left;
+    &:hover {
+        transform: scale(2);
+    }
 `
+const StyledUpperDiv = styled.div`
+display:flex;
+font-family: 'Bungee Outline', cursive;
+width: 50%;
+font-size: 2rem;
+`
+const StyledLowerDiv = styled.div `
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+width: 50%;
 
+`
+const StyledH2 = styled.h2`
+width: 80%;
+font-size: 1rem;
+margin: 0;
+margin-top: 10px;
+`
 export default function Character(props){
     
     const { name, born, characters, films } = props
-    console.log(films)
     return (
         <>
         <StyledDiv>
-        <StyledName>{name}</StyledName>
-        {films.map(elem => 
-        <div>
-         <p>{elem}</p>
-        </div>)}
+            <StyledUpperDiv>
+                <StyledName>{name}</StyledName>
+            </StyledUpperDiv>
+            
+            <StyledLowerDiv>
+            <StyledH2>Featured Films:</StyledH2>
+            {films.map(elem => {
+                return <StyledList>☆{elem}☆</StyledList>
+            })}
+            </StyledLowerDiv>
         </StyledDiv>
+       
+
         </>
     )
 
