@@ -37,8 +37,8 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 Your finished project must include all of the following requirements:
 
 - [x] Use the endpoint `[GET] https://swapi.dev/api/people` (mocked in [msw](https://github.com/mswjs/msw)) to obtain characters.
-- [ ] Set the list of characters into state.
-- [ ] Render your characters to the DOM:
+- [x] Set the list of characters into state.
+- [x] Render your characters to the DOM:
 
   1. Build a React component named 'Character' to render an individual character.
   1. Map over the list in state, and for each character render a Character to the page.
@@ -69,16 +69,28 @@ After finishing your required elements, you can push your work further. These go
 
 ## Submission format
 
-- [ ] Submit via Codegrade by committing and pushing any new changes to the main branch.
-- [ ] Check Codegrade for automated feedback.
-- [ ] Check Codegrade in the days following the Sprint Challenge for reviewer feedback.
-- [ ] Any changes pushed after the deadline will not receive any feedback.
+- [x] Submit via Codegrade by committing and pushing any new changes to the main branch.
+- [x] Check Codegrade for automated feedback.
+- [x] Check Codegrade in the days following the Sprint Challenge for reviewer feedback.
+- [x] Any changes pushed after the deadline will not receive any feedback.
 
 ## Interview Questions
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Put your answers underneath the questions:
 
 1. What is React JS and what problems does it solve? Support your answer with concepts introduced in class and from your personal research on the web.
+
+React JS is a library used for building applications. React tracks state data and can respond by performing a certain function every time that state data is changed. This could be adding or removing items from the dom. This technology can prevent large applications from slowing down by only adding items to the dom at specified times, or removing items that aren't used all the time.
+
 1. Describe component state.
+
+Component state is a parameter that can be set, tracked, and updated. It is useful for tracking certain information, for example a user logged out could have a state of "loggedOut" but once they log in that state could change to "loggedIn" and the page could render to show new features for a logged in user.
+
 1. Describe props.
+
+Props are properties that can be passed along to other components of your application. This can be useful for many things, for example you could pass information from an API using props instead of performing an axios.get on each component file.
+
 1. What are side effects, and how do you sync effects in a React component to changes of certain state or props?
+
+Side effects occur when a function tries to affect something outside of it's scope, like grabbing data from an API. To sync effects you need to feed the effect hook an array. If the array is empty the effect will only take place once. If you were to feed it state data, it would run every time there was a change in that state data. If you wanted something to run after every change (which you probably wouldn't!) you can create the effect hook without giving it that second argument (the array).
+
